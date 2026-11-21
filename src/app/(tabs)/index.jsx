@@ -26,6 +26,13 @@ const Home = () => {
 
         <FeaturedCard event={FEATURED_EVENT} height={282} style={styles.hero} />
 
+        <View style={styles.tagline}>
+          <Text style={styles.kicker}>Kolektif Dokumentasi Event · Bali</Text>
+          <Text style={styles.taglineTitle}>
+            Mengabadikan rasa, suara, dan budaya <Text style={styles.taglineAccent}>Pulau Dewata.</Text>{' '}
+          </Text>
+        </View>
+
         <View style={styles.navySection}>
           <View style={styles.secHead}>
             <Text style={styles.secTitle}>Event Pilihan</Text>
@@ -42,6 +49,13 @@ const Home = () => {
               <MiniEventCard key={event.id} event={event} />
             ))}
           </ScrollView>
+        </View>
+
+        <View style={styles.quote}>
+          <Text style={styles.quoteText}>
+            &quot;Setiap event meninggalkan cerita. Kami merapikan ingatannya, satu foto dalam
+            satu waktu.&quot;
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -93,6 +107,28 @@ const styles = StyleSheet.create({
   hero: {
     marginHorizontal: spacing.screenX,
   },
+  tagline: {
+    paddingTop: 26,
+    paddingHorizontal: spacing.screenX,
+    paddingBottom: 20,
+  },
+  kicker: {
+    fontSize: 10,
+    fontFamily: fontFamily.sansBold,
+    letterSpacing: 2.2,
+    color: colors.gold,
+    marginBottom: 9,
+  },
+  taglineTitle: {
+    fontFamily: fontFamily.serif,
+    fontSize: 27,
+    lineHeight: 33,
+    color: colors.navy,
+  },
+  taglineAccent: {
+    fontFamily: fontFamily.serifItalic,
+    color: colors.gold,
+  },
   navySection: {
     backgroundColor: colors.navy,
     paddingTop: spacing.xl,
@@ -122,6 +158,24 @@ const styles = StyleSheet.create({
     gap: 10,
     paddingTop: 2,
     paddingBottom: 8,
+  },
+  quote: {
+    marginHorizontal: spacing.screenX,
+    marginTop: 16,
+    marginBottom: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 18,
+    borderLeftWidth: 2,
+    borderLeftColor: colors.gold,
+    backgroundColor: colors.goldSoft,
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
+  },
+  quoteText: {
+    fontFamily: fontFamily.serifItalic,
+    fontSize: 14,
+    lineHeight: 21,
+    color: colors.navy,
   },
 });
 
