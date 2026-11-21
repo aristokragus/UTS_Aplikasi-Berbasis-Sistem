@@ -1,7 +1,9 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import FeaturedCard from '../../components/FeaturedCard';
 import { colors, fontFamily, spacing } from '../../constants/theme';
+import { FEATURED_EVENT } from '../../constants/events';
 
 const Home = () => {
   return (
@@ -16,6 +18,8 @@ const Home = () => {
             <Text style={styles.monogramText}>BH</Text>
           </View>
         </View>
+
+        <FeaturedCard event={FEATURED_EVENT} height={282} style={styles.hero} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -62,6 +66,9 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.serifItalic,
     fontSize: 14,
     color: colors.cream,
+  },
+  hero: {
+    marginHorizontal: spacing.screenX,
   },
 });
 
