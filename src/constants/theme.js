@@ -29,10 +29,10 @@ export const radius = {
 };
 
 export const fontFamily = {
-  serif: 'PlayfairDisplay_600 SemiBold',
-  serifItalic: 'PlayfairDisplay_500 MediumItalic',
-  sans: 'PlusJakartaSans_400 Regular',
-  sansMedium: 'PlusJakartaSans_500 Medium',
-  sansSemiBold: 'PlusJakartaSans_600 SemiBold',
-  sansBold: 'PlusJakartaSans_700 Bold',
+  serif: 'PlayfairDisplay_600SemiBold',
+  serifItalic: 'PlayfairDisplay_500MediumItalic',
+  sans: 'PlusJakartaSans_400Regular',
+  sansMedium: 'PlusJakartaSans_500Medium',
+  sansSemiBold: 'PlusJakartaSans_600SemiBold',
+  sansBold: 'PlusJakartaSans_700Bold',
 };

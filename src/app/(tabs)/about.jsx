@@ -43,7 +43,6 @@ const About = () => {
         </View>
 
         <View style={styles.visi}>
-          <Text style={styles.visiQmark}></Text>
           <Text style={styles.kicker}>Visi</Text>
           <Text style={styles.visiText}>
             Menjadi arsip visual paling terpercaya untuk event di Bali, tempat setiap momen
@@ -146,16 +145,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.goldSoft,
     borderTopRightRadius: 16,
     borderBottomRightRadius: 16,
-  },
-  visiQmark: {
-    position: 'absolute',
-    top: 6,
-    right: 16,
-    fontFamily: fontFamily.serif,
-    fontSize: 52,
-    lineHeight: 56,
-    color: colors.gold,
-    opacity: 0.35,
   },
   kicker: {
     fontSize: 10,
