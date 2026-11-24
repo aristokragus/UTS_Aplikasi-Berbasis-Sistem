@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   hero: {
-    height: 340,
+    height: 345,
   },
   heroFoto: {
     width: '100%',
@@ -168,6 +168,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.cream,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: colors.navy,
+    shadowOpacity: 0.25,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 4,
   },
   heroChip: {
     position: 'absolute',
