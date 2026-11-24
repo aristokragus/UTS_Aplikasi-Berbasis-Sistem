@@ -1,9 +1,9 @@
 import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Lucide from '@react-native-vector-icons/lucide';
+import {Lucide} from "@react-native-vector-icons/lucide";
 import PageHeader from '../../components/PageHeader';
-import { colors, fontFamily, radius, spacing } from '../../constants/theme';
+import { colors, fontFamily } from '../../constants/theme';
 
 const TIM = [
   { inisial: 'AD', nama: 'Agus Dindin', peran: 'Founder' }
@@ -22,6 +22,7 @@ const About = () => {
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         <PageHeader kicker="Sejak 2019 · Denpasar" title="Tentang Kami" />
 
+        {/* Banner */}
         <View style={styles.banner}>
           <Image
             source={{ uri: 'https://placehold.co/600x400/png' }}
@@ -31,7 +32,9 @@ const About = () => {
             <Text style={styles.bannerText}>Baku Hisap Collective</Text>
           </View>
         </View>
+        {/* End Banner */}
 
+        {/* Profil */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.paragraph}>
@@ -41,15 +44,20 @@ const About = () => {
             pendekatan editorial yang tenang dan presisi.
           </Text>
         </View>
+        {/* End Profil */}
 
+        {/* Visi */}
         <View style={styles.visi}>
+          <Text style={styles.visiQmark}></Text>
           <Text style={styles.kicker}>Visi</Text>
           <Text style={styles.visiText}>
             Menjadi arsip visual paling terpercaya untuk event di Bali, tempat setiap momen
             bernilai dikenang.
           </Text>
         </View>
+        {/* End Visi */}
 
+        {/* Tim */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Tim</Text>
           {TIM.map((m) => (
@@ -64,7 +72,9 @@ const About = () => {
             </View>
           ))}
         </View>
+        {/* End Tim */}
 
+        {/* Kontak */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Kontak</Text>
           {KONTAK.map((k) => (
@@ -74,6 +84,7 @@ const About = () => {
             </View>
           ))}
         </View>
+        {/* End Kontak */}
 
         <Text style={styles.footer}>© 2026 Baku Hisap Collective · Denpasar, Bali</Text>
       </ScrollView>
@@ -87,12 +98,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.cream,
   },
   scroll: {
-    paddingBottom: spacing.xl,
+    paddingBottom: 24,
   },
   banner: {
-    marginHorizontal: spacing.screenX,
+    marginHorizontal: 20,
     height: 150,
-    borderRadius: radius.card,
+    borderRadius: 16,
     overflow: 'hidden',
   },
   bannerFoto: {
@@ -116,7 +127,7 @@ const styles = StyleSheet.create({
   },
   section: {
     paddingTop: 22,
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
   },
   sectionTitle: {
     fontFamily: fontFamily.serif,
@@ -136,7 +147,7 @@ const styles = StyleSheet.create({
   },
   visi: {
     marginTop: 20,
-    marginHorizontal: spacing.screenX,
+    marginHorizontal: 20,
     paddingVertical: 18,
     paddingLeft: 22,
     paddingRight: 20,
@@ -145,6 +156,16 @@ const styles = StyleSheet.create({
     backgroundColor: colors.goldSoft,
     borderTopRightRadius: 16,
     borderBottomRightRadius: 16,
+  },
+  visiQmark: {
+    position: 'absolute',
+    top: 6,
+    right: 16,
+    fontFamily: fontFamily.serif,
+    fontSize: 52,
+    lineHeight: 56,
+    color: colors.gold,
+    opacity: 0.35,
   },
   kicker: {
     fontSize: 10,
@@ -211,7 +232,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingTop: 24,
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
     paddingBottom: 18,
     textAlign: 'center',
     fontSize: 9.5,

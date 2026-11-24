@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FeaturedCard from '../../components/FeaturedCard';
 import MiniEventCard from '../../components/MiniEventCard';
-import { colors, fontFamily, spacing } from '../../constants/theme';
+import { colors, fontFamily } from '../../constants/theme';
 import { EVENTS, FEATURED_EVENT } from '../../constants/events';
 
 const Home = () => {
@@ -14,6 +14,7 @@ const Home = () => {
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+        {/* Brand Header */}
         <View style={styles.header}>
           <View>
             <Text style={styles.wordmark}>Baku Hisap</Text>
@@ -23,20 +24,26 @@ const Home = () => {
             <Text style={styles.monogramText}>BH</Text>
           </View>
         </View>
+        {/* End Brand Header */}
 
+        {/* Featured Event */}
         <FeaturedCard event={FEATURED_EVENT} height={282} style={styles.hero} />
+        {/* End Featured Event */}
 
+        {/* Tagline */}
         <View style={styles.tagline}>
           <Text style={styles.kicker}>Kolektif Dokumentasi Event · Bali</Text>
           <Text style={styles.taglineTitle}>
             Mengabadikan rasa, suara, dan budaya <Text style={styles.taglineAccent}>Pulau Dewata.</Text>{' '}
           </Text>
         </View>
+        {/* End Tagline */}
 
+        {/* Selected Events */}
         <View style={styles.navySection}>
           <View style={styles.secHead}>
             <Text style={styles.secTitle}>Event Pilihan</Text>
-            <Pressable accessibilityRole="button" onPress={() => router.push('/events')}>
+            <Pressable onPress={() => router.push('/events')}>
               <Text style={styles.secLink}>Lihat semua</Text>
             </Pressable>
           </View>
@@ -50,13 +57,16 @@ const Home = () => {
             ))}
           </ScrollView>
         </View>
+        {/* End Selected Events */}
 
+        {/* Closing Quote */}
         <View style={styles.quote}>
           <Text style={styles.quoteText}>
             &quot;Setiap event meninggalkan cerita. Kami merapikan ingatannya, satu foto dalam
             satu waktu.&quot;
           </Text>
         </View>
+        {/* End Closing Quote */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -68,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.cream,
   },
   scroll: {
-    paddingBottom: spacing.xl,
+    paddingBottom: 24,
   },
   header: {
     flexDirection: 'row',
@@ -76,7 +86,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingTop: 10,
     paddingBottom: 14,
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
   },
   wordmark: {
     fontFamily: fontFamily.serif,
@@ -105,11 +115,11 @@ const styles = StyleSheet.create({
     color: colors.cream,
   },
   hero: {
-    marginHorizontal: spacing.screenX,
+    marginHorizontal: 20,
   },
   tagline: {
     paddingTop: 26,
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
     paddingBottom: 20,
   },
   kicker: {
@@ -131,7 +141,7 @@ const styles = StyleSheet.create({
   },
   navySection: {
     backgroundColor: colors.navy,
-    paddingTop: spacing.xl,
+    paddingTop: 24,
     paddingBottom: 26,
     marginTop: 4,
   },
@@ -139,7 +149,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'baseline',
     justifyContent: 'space-between',
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
     marginBottom: 12,
   },
   secTitle: {
@@ -154,13 +164,13 @@ const styles = StyleSheet.create({
     color: colors.goldLight,
   },
   hScroll: {
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
     gap: 10,
     paddingTop: 2,
     paddingBottom: 8,
   },
   quote: {
-    marginHorizontal: spacing.screenX,
+    marginHorizontal: 20,
     marginTop: 16,
     marginBottom: 20,
     paddingVertical: 15,

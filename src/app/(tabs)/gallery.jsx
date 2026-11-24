@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PageHeader from '../../components/PageHeader';
-import { colors, spacing } from '../../constants/theme';
+import { colors, fontFamily } from '../../constants/theme';
 import { GALLERY_ITEMS } from '../../constants/events';
 
 const Gallery = () => {
@@ -15,6 +15,7 @@ const Gallery = () => {
           sub={`Momen terpilih dari ${GALLERY_ITEMS.length} momen yang terdokumentasi`}
         />
 
+        {/* Photo Grid */}
         <View style={styles.grid}>
           {GALLERY_ITEMS.map((item, index) => (
             <View key={item.id} style={[styles.item, { height: item.tinggi }]}>
@@ -26,6 +27,7 @@ const Gallery = () => {
             </View>
           ))}
         </View>
+        {/* End Photo Grid */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -37,13 +39,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.cream,
   },
   scroll: {
-    paddingBottom: spacing.xl,
+    paddingBottom: 24,
   },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
     rowGap: 14,
   },
   item: {
@@ -70,12 +72,12 @@ const styles = StyleSheet.create({
   },
   captionText: {
     fontSize: 9.5,
-    fontFamily: 'PlusJakartaSans_500 Medium',
+    fontFamily: fontFamily.sansMedium,
     color: colors.cream,
   },
   captionIndex: {
     fontSize: 9,
-    fontFamily: 'PlusJakartaSans_700 Bold',
+    fontFamily: fontFamily.sansBold,
     letterSpacing: 1,
     color: colors.goldLight,
   },
