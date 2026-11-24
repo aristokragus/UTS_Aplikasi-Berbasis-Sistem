@@ -1,69 +1,52 @@
 import React from 'react';
-import { Image, Pressable, StyleSheet, Text } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { colors, fontFamily, radius } from '../constants/theme';
+import { colors, fontFamily } from '../constants/theme';
 
 const MiniEventCard = ({ event }) => {
   const router = useRouter();
 
   return (
-    <Pressable
-      accessibilityRole="button"
-      onPress={() => router.push(`/event/${event.id}`)}
-      style={styles.card}
-    >
+    <Pressable onPress={() => router.push(`/event/${event.id}`)} style={styles.card}>
       <Image source={event.foto} style={styles.foto} />
-      <Text style={styles.tanggal}>
-        {event.tanggalShort} 2026 · {event.kategori}
-      </Text>
-      <Text style={styles.nama} numberOfLines={2}>
-        {event.nama}
-      </Text>
-      <Text style={styles.venue} numberOfLines={1}>
-        {event.venueShort}
-      </Text>
+      <View style={styles.body}>
+        <Text style={styles.judul} numberOfLines={2}>
+          {event.nama}
+        </Text>
+        <Text style={styles.meta} numberOfLines={1}>
+          {event.tanggalShort}
+        </Text>
+      </View>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    width: 140,
-    flexShrink: 0,
+    width: 186,
     backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: colors.line,
-    borderRadius: radius.card,
+    borderRadius: 14,
     overflow: 'hidden',
-    paddingBottom: 13,
   },
   foto: {
-    height: 108,
     width: '100%',
+    height: 96,
   },
-  tanggal: {
-    fontSize: 8.5,
-    fontFamily: fontFamily.sansBold,
-    letterSpacing: 1.6,
-    color: colors.gold,
-    marginTop: 10,
-    marginHorizontal: 12,
+  body: {
+    padding: 10,
   },
-  nama: {
+  judul: {
     fontFamily: fontFamily.serif,
-    fontSize: 13.5,
-    lineHeight: 17,
+    fontSize: 12.5,
+    lineHeight: 16,
     color: colors.navy,
-    marginTop: 4,
-    marginHorizontal: 12,
   },
-  venue: {
+  meta: {
     fontSize: 9.5,
-    fontFamily: fontFamily.sans,
-    lineHeight: 13,
     color: colors.inkSoft,
     marginTop: 4,
-    marginHorizontal: 12,
   },
 });
 
