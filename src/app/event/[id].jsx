@@ -4,8 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import Lucide from '@react-native-vector-icons/lucide';
-import { colors, fontFamily, radius, spacing } from '../../constants/theme';
+import {Lucide} from "@react-native-vector-icons/lucide";
+import { colors, fontFamily } from '../../constants/theme';
 import { getEventById } from '../../constants/events';
 
 const EventDetail = () => {
@@ -18,7 +18,7 @@ const EventDetail = () => {
       <SafeAreaView style={styles.safe}>
         <View style={styles.notFound}>
           <Text style={styles.sectionTitle}>Event tidak ditemukan</Text>
-          <Pressable accessibilityRole="button" onPress={() => router.back()}>
+          <Pressable onPress={() => router.back()}>
             <Text style={styles.backText}>Kembali</Text>
           </Pressable>
         </View>
@@ -33,30 +33,28 @@ const EventDetail = () => {
     <View style={styles.safe}>
       <StatusBar style="light" />
       <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Hero Foto */}
         <View style={styles.hero}>
-          <Image source={event.fotoHero ?? event.foto} style={styles.heroFoto} />
+          <Image source={event.fotoHero || event.foto} style={styles.heroFoto} />
           <LinearGradient
             colors={['rgba(30,35,74,0.35)', 'rgba(30,35,74,0)', 'rgba(30,35,74,0.55)']}
             locations={[0, 0.4, 1]}
             style={styles.heroShade}
           />
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Kembali"
-            onPress={() => router.back()}
-            style={styles.backBtn}
-          >
+          <Pressable onPress={() => router.back()} style={styles.backBtn}>
             <Lucide name="chevron-left" size={18} color={colors.navy} strokeWidth={2.2} />
           </Pressable>
           <View style={styles.heroChip}>
             <Text style={styles.heroChipText}>{event.kategoriLengkap}</Text>
           </View>
         </View>
+        {/* End Hero Foto */}
 
         <View style={styles.content}>
           <Text style={styles.judul}>{event.nama}</Text>
           <Text style={styles.tema}>{event.tema}</Text>
 
+          {/* Info Tanggal & Lokasi */}
           <View style={styles.metaRow}>
             <View style={styles.icard}>
               <View style={styles.icardIcon}>
@@ -79,12 +77,16 @@ const EventDetail = () => {
               </View>
             </View>
           </View>
+          {/* End Info Tanggal & Lokasi */}
 
+          {/* Tentang Event */}
           <View style={styles.section}>
             <Text style={styles.kicker}>Tentang Event</Text>
             <Text style={styles.paragraph}>{event.deskripsi}</Text>
           </View>
+          {/* End Tentang Event */}
 
+          {/* Lineup */}
           {event.lineup.length > 0 && (
             <View style={styles.section}>
               <Text style={styles.kicker}>Lineup</Text>
@@ -100,7 +102,9 @@ const EventDetail = () => {
               </ScrollView>
             </View>
           )}
+          {/* End Lineup */}
 
+          {/* Dokumentasi */}
           <View style={styles.section}>
             <Text style={styles.kicker}>Dokumentasi</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -111,13 +115,14 @@ const EventDetail = () => {
               </View>
             </ScrollView>
           </View>
-          <View style={{ height: spacing.lg }} />
+          {/* End Dokumentasi */}
+          <View style={{ height: 16 }} />
         </View>
       </ScrollView>
 
+      {/* Tombol Daftar */}
       <View style={styles.ctaBar}>
         <Pressable
-          accessibilityRole="button"
           onPress={event.privat ? undefined : onDaftar}
           disabled={event.privat}
           style={[styles.btn, event.privat && styles.btnDisabled]}
@@ -128,6 +133,7 @@ const EventDetail = () => {
           )}
         </Pressable>
       </View>
+      {/* End Tombol Daftar */}
     </View>
   );
 }
@@ -149,7 +155,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   hero: {
-    height: 345,
+    height: 340,
   },
   heroFoto: {
     width: '100%',
@@ -168,11 +174,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.cream,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: colors.navy,
-    shadowOpacity: 0.25,
-    shadowRadius: 14,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
   },
   heroChip: {
     position: 'absolute',
@@ -194,8 +195,8 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     marginTop: -26,
-    paddingTop: spacing.xl,
-    paddingHorizontal: spacing.screenX,
+    paddingTop: 24,
+    paddingHorizontal: 20,
   },
   judul: {
     fontFamily: fontFamily.serif,
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
   metaRow: {
     flexDirection: 'row',
     gap: 10,
-    marginTop: spacing.lg,
+    marginTop: 16,
   },
   icard: {
     flex: 1,
@@ -300,7 +301,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: colors.line,
     backgroundColor: colors.cream,
-    paddingHorizontal: spacing.screenX,
+    paddingHorizontal: 20,
     paddingTop: 14,
     paddingBottom: 22,
   },
@@ -310,7 +311,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 6,
     backgroundColor: colors.navy,
-    borderRadius: radius.button,
+    borderRadius: 14,
     paddingVertical: 15,
   },
   btnDisabled: {
