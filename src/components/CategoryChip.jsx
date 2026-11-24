@@ -4,11 +4,7 @@ import { colors, fontFamily } from '../constants/theme';
 
 const CategoryChip = ({ label, active = false, onPress }) => {
   return (
-    <Pressable
-      accessibilityRole="button"
-      onPress={onPress}
-      style={[styles.chip, active && styles.chipActive]}
-    >
+    <Pressable onPress={onPress} style={[styles.chip, active && styles.chipActive]}>
       <Text style={[styles.label, active && styles.labelActive]}>{label}</Text>
     </Pressable>
   );

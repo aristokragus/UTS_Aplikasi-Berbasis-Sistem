@@ -1,7 +1,6 @@
 import React from 'react';
 import { View} from 'react-native';
-import { Lucide } from '@react-native-vector-icons/lucide';
-import { colors } from '../constants/theme';
+import {Lucide} from "@react-native-vector-icons/lucide";
 
 const TabBarIcon = ({ name, color, focused }) => {
   return (
@@ -10,7 +9,5 @@ const TabBarIcon = ({ name, color, focused }) => {
     </View>
   );
 }
-
-export { colors };
 
 export default TabBarIcon;

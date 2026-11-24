@@ -1,14 +1,13 @@
 import React from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
-import { colors, fontFamily, radius } from '../constants/theme';
+import { colors, fontFamily } from '../constants/theme';
 
 const EventCard = ({ event, index = 0 }) => {
   const router = useRouter();
 
   return (
     <Pressable
-      accessibilityRole="button"
       onPress={() => router.push(`/event/${event.id}`)}
       style={[styles.row, index % 2 === 1 && styles.rowReverse]}
     >
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderWidth: 1,
     borderColor: colors.line,
-    borderRadius: radius.card,
+    borderRadius: 16,
     padding: 10,
   },
   rowReverse: {
