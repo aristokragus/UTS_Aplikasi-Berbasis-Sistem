@@ -13,7 +13,7 @@ import {
   PlusJakartaSans_700Bold,
 } from '@expo-google-fonts/plus-jakarta-sans';
 
-const RootLayout = () => {
+export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     PlayfairDisplay_500Medium_Italic,
     PlayfairDisplay_600SemiBold,
@@ -37,5 +37,3 @@ const RootLayout = () => {
     </>
   );
 }
-
-export default RootLayout;
