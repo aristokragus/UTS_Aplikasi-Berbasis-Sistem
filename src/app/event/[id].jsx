@@ -33,7 +33,6 @@ const EventDetail = () => {
     <View style={styles.safe}>
       <StatusBar style="light" />
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Hero Foto */}
         <View style={styles.hero}>
           <Image source={event.fotoHero || event.foto} style={styles.heroFoto} />
           <LinearGradient
@@ -48,13 +47,11 @@ const EventDetail = () => {
             <Text style={styles.heroChipText}>{event.kategoriLengkap}</Text>
           </View>
         </View>
-        {/* End Hero Foto */}
 
         <View style={styles.content}>
           <Text style={styles.judul}>{event.nama}</Text>
           <Text style={styles.tema}>{event.tema}</Text>
 
-          {/* Info Tanggal & Lokasi */}
           <View style={styles.metaRow}>
             <View style={styles.icard}>
               <View style={styles.icardIcon}>
@@ -77,16 +74,12 @@ const EventDetail = () => {
               </View>
             </View>
           </View>
-          {/* End Info Tanggal & Lokasi */}
 
-          {/* Tentang Event */}
           <View style={styles.section}>
             <Text style={styles.kicker}>Tentang Event</Text>
             <Text style={styles.paragraph}>{event.deskripsi}</Text>
           </View>
-          {/* End Tentang Event */}
 
-          {/* Lineup */}
           {event.lineup.length > 0 && (
             <View style={styles.section}>
               <Text style={styles.kicker}>Lineup</Text>
@@ -94,7 +87,9 @@ const EventDetail = () => {
                 <View style={styles.lineup}>
                   {event.lineup.map((a) => (
                     <View key={a.nama} style={styles.artist}>
-                      <Image source={a.avatar} style={styles.artistFoto} />
+                      <View style={styles.artistIkon}>
+                        <Lucide name="music" size={26} color={colors.gold} strokeWidth={1.8} />
+                      </View>
                       <Text style={styles.artistNama}>{a.nama}</Text>
                     </View>
                   ))}
@@ -102,9 +97,7 @@ const EventDetail = () => {
               </ScrollView>
             </View>
           )}
-          {/* End Lineup */}
 
-          {/* Dokumentasi */}
           <View style={styles.section}>
             <Text style={styles.kicker}>Dokumentasi</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -115,12 +108,10 @@ const EventDetail = () => {
               </View>
             </ScrollView>
           </View>
-          {/* End Dokumentasi */}
           <View style={{ height: 16 }} />
         </View>
       </ScrollView>
 
-      {/* Tombol Daftar */}
       <View style={styles.ctaBar}>
         <Pressable
           onPress={event.privat ? undefined : onDaftar}
@@ -133,7 +124,6 @@ const EventDetail = () => {
           )}
         </Pressable>
       </View>
-      {/* End Tombol Daftar */}
     </View>
   );
 }
@@ -274,12 +264,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 7,
   },
-  artistFoto: {
+  artistIkon: {
     width: 64,
     height: 64,
     borderRadius: 32,
     borderWidth: 2,
     borderColor: colors.goldSoft,
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   artistNama: {
     fontSize: 9.5,

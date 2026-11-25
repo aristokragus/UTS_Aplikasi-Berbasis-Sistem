@@ -16,25 +16,22 @@ const KONTAK = [
   { ikon: 'globe', teks: 'bakuhisap.id' },
 ];
 
+const BANNER_URI =
+  'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&fit=crop';
+
 const About = () => {
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         <PageHeader kicker="Sejak 2019 · Denpasar" title="Tentang Kami" />
 
-        {/* Banner */}
         <View style={styles.banner}>
-          <Image
-            source={{ uri: 'https://placehold.co/600x400/png' }}
-            style={styles.bannerFoto}
-          />
+          <Image source={{ uri: BANNER_URI }} style={styles.bannerFoto} />
           <View style={styles.bannerLabel}>
             <Text style={styles.bannerText}>Baku Hisap Collective</Text>
           </View>
         </View>
-        {/* End Banner */}
 
-        {/* Profil */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Profil</Text>
           <Text style={styles.paragraph}>
@@ -44,9 +41,7 @@ const About = () => {
             pendekatan editorial yang tenang dan presisi.
           </Text>
         </View>
-        {/* End Profil */}
 
-        {/* Visi */}
         <View style={styles.visi}>
           <Text style={styles.visiQmark}></Text>
           <Text style={styles.kicker}>Visi</Text>
@@ -55,9 +50,7 @@ const About = () => {
             bernilai dikenang.
           </Text>
         </View>
-        {/* End Visi */}
 
-        {/* Tim */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Tim</Text>
           {TIM.map((m) => (
@@ -72,9 +65,7 @@ const About = () => {
             </View>
           ))}
         </View>
-        {/* End Tim */}
 
-        {/* Kontak */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Kontak</Text>
           {KONTAK.map((k) => (
@@ -84,7 +75,6 @@ const About = () => {
             </View>
           ))}
         </View>
-        {/* End Kontak */}
 
         <Text style={styles.footer}>© 2026 Baku Hisap Collective · Denpasar, Bali</Text>
       </ScrollView>

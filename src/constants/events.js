@@ -1,6 +1,24 @@
 export const CATEGORIES = ['Semua', 'Budaya', 'Musik', 'Festival', 'Corporate', 'Seremonial'];
 
-const img = () => ({ uri: 'https://placehold.co/600x400/png' });
+const U = 'https://images.unsplash.com';
+const q = (id) => `${U}/${id}?w=1200&q=80&fit=crop`;
+
+const FOTO = {
+  teruna: q('photo-1518548419970-58e3b4079ab2'),
+  kesanga: q('photo-1555400038-63f5ba517a47'),
+  diesNatalis: q('photo-1540575467063-178a50c2df87'),
+  unilever: q('photo-1556761175-b413da4baf72'),
+  beachwalk: q('photo-1502680390469-be75c86b636f'),
+  tni: q('photo-1517245386807-bb43f82c33c4'),
+  diesteria: q('photo-1470229722913-7c0e2dbbafd3'),
+  diesteriaHero: q('photo-1514525253161-7a46d19cd819'),
+  prima: q('photo-1505373877841-8d25f7d46678'),
+  karmany: q('photo-1524368535928-5b5e00ddc76b'),
+  about: q('photo-1537996194471-e657df975ab4'),
+  galeriBudaya: q('photo-1604999333679-b86d54738315'),
+};
+
+const img = (key) => ({ uri: FOTO[key] });
 
 export const EVENTS = [
   {
@@ -15,7 +33,7 @@ export const EVENTS = [
     tema: 'Grand Final pemilihan Teruna Teruni Kota Denpasar',
     deskripsi:
       'Malam puncak pemilihan Teruna Teruni Kota Denpasar di Ruang Taksu. Dokumentasi kami fokus pada prosesi adat, penampilan para finalis, dan momen pengumuman pemenang yang hangat.',
-    foto: img(),
+    foto: img('teruna'),
     privat: false,
     lineup: [],
   },
@@ -31,7 +49,7 @@ export const EVENTS = [
     tema: 'Festival ogoh-ogoh menjelang Nyepi',
     deskripsi:
       'Lebih dari 230 sekaa taruna berlomba mempertunjukkan ogoh-ogoh menjelang Nyepi. Kami merekam dari pelarungan hingga pengumuman pemenang di Lapangan Puputan Badung.',
-    foto: img(),
+    foto: img('kesanga'),
     privat: false,
     lineup: [],
   },
@@ -47,7 +65,7 @@ export const EVENTS = [
     tema: '"Taru Sekala: Mengakar Warisan Semasta"',
     deskripsi:
       'Rangkaian Dies Natalis ke-48 Poltekpar Bali dengan pembukaan bertema "Nawa Rasa" dan pengukuhan Guru Besar. Dokumentasi seremonial dengan pendekatan editorial yang tenang.',
-    foto: img(),
+    foto: img('diesNatalis'),
     privat: false,
     lineup: [],
   },
@@ -63,7 +81,7 @@ export const EVENTS = [
     tema: 'Gathering internal keuangan',
     deskripsi:
       'Dokumentasi acara internal korporat di Grand Mercure Seminyak. Sebagian materi bersifat privat dan tidak dipublikasikan; tersedia cuplikan suasana untuk arsip klien.',
-    foto: img(),
+    foto: img('unilever'),
     privat: true,
     lineup: [],
   },
@@ -79,7 +97,7 @@ export const EVENTS = [
     tema: '"Waves of Harmony"',
     deskripsi:
       'Festival tepi laut yang memadukan surfing, musik, budaya, wellness, fashion, dan coffee culture di Beachwalk Kuta. Dokumentasi mengikuti ritme festival dari pagi hingga malam.',
-    foto: img(),
+    foto: img('beachwalk'),
     privat: false,
     lineup: [],
   },
@@ -95,7 +113,7 @@ export const EVENTS = [
     tema: 'Pertemuan pemangku kepentingan internal',
     deskripsi:
       'Pertemuan pemangku kepentingan di Kuta. Materi bersifat privat; arsip yang tersedia terbatas pada suasana ruangan dan moment protokoler.',
-    foto: img(),
+    foto: img('tni'),
     privat: true,
     lineup: [],
   },
@@ -111,21 +129,21 @@ export const EVENTS = [
     tema: '"Sonic Waves" · Loud, Free, Alive',
     deskripsi:
       'Konser tahunan INSTIKI yang menggemparkan Lapangan Niti Mandala dengan konsep "Sonic Waves". Ribuan penonton menari sepanjang malam dibawakan lineup papan atas musik Indonesia, dari pop-punk legendaris hingga indie yang intim.',
-    foto: img(),
-    fotoHero: img(),
+    foto: img('diesteria'),
+    fotoHero: img('diesteriaHero'),
     privat: false,
     lineup: [
-      { nama: 'Tipe-X', avatar: img() },
-      { nama: 'Hindia', avatar: img() },
-      { nama: '.Feast', avatar: img() },
-      { nama: 'Anggis Devaki', avatar: img() },
-      { nama: 'Ary Kencana', avatar: img() },
+      { nama: 'Tipe-X' },
+      { nama: 'Hindia' },
+      { nama: '.Feast' },
+      { nama: 'Anggis Devaki' },
+      { nama: 'Ary Kencana' },
     ],
     dokumentasi: [
-      img(),
-      img(),
-      img(),
-      img(),
+      img('diesteria'),
+      img('diesteriaHero'),
+      img('karmany'),
+      img('beachwalk'),
     ],
   },
   {
@@ -140,7 +158,7 @@ export const EVENTS = [
     tema: '"Beyond Tomorrow: Securing Progress - Accelerating in Unity"',
     deskripsi:
       'Executive Gathering jaringan PRIMA di The Mulia Nusa Dua dengan sekitar 250 peserta. Dokumentasi mencakup sesi pleno, Prima Awards, dan gala dinner.',
-    foto: img(),
+    foto: img('prima'),
     privat: false,
     lineup: [],
   },
@@ -156,7 +174,7 @@ export const EVENTS = [
     tema: 'Forum dialog strategis perbankan',
     deskripsi:
       'Pertemuan internal Bank Indonesia di Padma Resort Legian. Arsip publik terbatas; dokumentasi lengkap tersimpan untuk kebutuhan internal klien.',
-    foto: img(),
+    foto: img('tni'),
     privat: true,
     lineup: [],
   },
@@ -172,7 +190,7 @@ export const EVENTS = [
     tema: 'FKS XVII "Luminoria" · In Cinema',
     deskripsi:
       'FKS XVII "Luminoria" memadukan weekend market, konser, kuliner, dan layar tancap bertema "In Cinema" di Lapangan Timur Niti Mandala. Dokumentasi fokus pada energi penonton dan karnaval kreator muda.',
-    foto: img(),
+    foto: img('karmany'),
     privat: false,
     lineup: [],
   },
@@ -181,14 +199,14 @@ export const EVENTS = [
 export const FEATURED_EVENT = EVENTS.find((e) => e.id === '7');
 
 export const GALLERY_ITEMS = [
-  { id: 1, foto: img(), caption: 'Diesteria 2026', tinggi: 180 },
-  { id: 2, foto: img(), caption: 'Beachwalk Kuta Fest', tinggi: 150 },
-  { id: 3, foto: img(), caption: 'Stakeholders TNI', tinggi: 168 },
-  { id: 4, foto: img(), caption: 'Dies Natalis Poltekpar', tinggi: 158 },
-  { id: 5, foto: img(), caption: 'Kuta Beach', tinggi: 200 },
-  { id: 6, foto: img(), caption: 'FKS XVII · Luminoria', tinggi: 148 },
-  { id: 7, foto: img(), caption: 'Diesteria 2026', tinggi: 190 },
-  { id: 8, foto: img(), caption: 'Sekala · Bali', tinggi: 150 },
+  { id: 1, foto: img('diesteria'), caption: 'Diesteria 2026', tinggi: 180 },
+  { id: 2, foto: img('beachwalk'), caption: 'Beachwalk Kuta Fest', tinggi: 150 },
+  { id: 3, foto: img('tni'), caption: 'Stakeholders TNI', tinggi: 168 },
+  { id: 4, foto: img('diesNatalis'), caption: 'Dies Natalis Poltekpar', tinggi: 158 },
+  { id: 5, foto: img('about'), caption: 'Kuta Beach', tinggi: 200 },
+  { id: 6, foto: img('karmany'), caption: 'FKS XVII · Luminoria', tinggi: 148 },
+  { id: 7, foto: img('diesteriaHero'), caption: 'Diesteria 2026', tinggi: 190 },
+  { id: 8, foto: img('galeriBudaya'), caption: 'Sekala · Bali', tinggi: 150 },
 ];
 
 EVENTS.forEach((e) => {
